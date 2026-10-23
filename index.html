@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing pages modernas, responsivas e rápidas. Solicite seu projeto com Robson Maciel.">
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Robson Maciel — Desenvolvimento Web & Landing Pages">
+  <meta property="og:description" content="Landing pages modernas, ultra-rápidas e responsivas focadas em conversão.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/42287752?v=4">
+  
+  <title>Robson Maciel — Desenvolvimento Web & Landing Pages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ 
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #101726;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.35);
+
+      --text: #f9fafb;
+      --muted: #9ca3af;
+
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --green: #22c55e;
+      --green-glow: rgba(34, 197, 94, 0.2);
+      --green-sub-text:#05ad91;
+      --bg-mobile: rgb(29, 29, 29);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%);
+      background-repeat: no-repeat;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    
+    /* Largura reduzida com mais margem interna */
+    .wrap { width: min(880px, calc(100% - 40px)); margin-inline: auto; }
+
+    /* Animação de Entrada Global (Fade Up) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Topbar / Header */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 20px;
+      border-bottom: 1px solid var(--card-border);
+      animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .avatar-header {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+      transition: transform 0.3s ease;
+    }
+    .avatar-header:hover { transform: scale(1.1) rotate(5deg); }
+    .brand { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; }
+    .brand span { color: var(--accent); }
+    
+    /* Botão do GitHub no Topo */
+    .nav-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-github:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+      padding-block: 50px 70px;
+      width: 100%;
+      margin-inline: auto;
+    }
+
+    .hero > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+       width: 100%;
+     
+    }
+    
+    .hero h1{
+       
+      margin-left: 90px;
+      margin-right: 90px;
+      padding: 50px;
+      margin-bottom: 20px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--green-glow);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .actions { 
+      display: flex; 
+      justify-content: center; 
+      gap: 14px; 
+      flex-wrap: wrap; 
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #030712;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(2, 132, 199, 0.45);
+    }
+
+    /* Vitrine / Palco Principal de Projetos */
+    .portrait-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 720px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .stage-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .stage-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      background: linear-gradient(0deg, rgba(9, 13, 22, 0.85) 0%, rgba(9, 13, 22, 0.2) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .stage-container:hover .stage-overlay {
+      opacity: 1;
+    }
+
+    .stage-info h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .stage-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .btn-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #030712;
+      font-size: 0.875rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px var(--accent-glow);
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .btn-project:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Barra de Miniaturas (Thumbnails) abaixo do Palco */
+    .thumbnails-bar {
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(16, 23, 38, 0.95);
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      border-top: 1px solid var(--card-border);
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--card-bg);
+    }
+
+    .thumbnails-bar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .thumbnails-bar::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .thumb-item {
+      position: relative;
+      flex-shrink: 0;
+      width: 100px;
+      height: 60px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all 0.25s ease;
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-item:hover {
+      opacity: 0.9;
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    .thumb-item.active {
+      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+      transform: scale(1.05);
+    }
+
+    /* Área Sobre Mim */
+    .about { 
+      padding-block: 20px 60px; 
+    }
+
+    .about-grid-card {
+      display: grid;
+      grid-template-columns: 0.35fr 0.65fr;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(16, 23, 38, 0.6) 100%);
+      transition: border-color 0.3s ease;
+    }
+
+    .about-grid-card:hover { 
+      border-color: var(--card-border-hover); 
+    }
+
+    .about-photo-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .about-photo-card:hover { 
+      transform: scale(1.02); 
+    }
+
+    .about-photo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .about-photo-card:hover img { 
+      transform: scale(1.05); 
+    }
+
+    .about-content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    }
+
+    .about-content h2 span {
+      color: var(--green);
+      text-shadow: 0 0 20px var(--green-glow);
+      font-size: inherit;
+      font-family: inherit;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 780px;
+      margin-bottom: 28px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 24px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .highlight-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .highlight-item:hover .highlight-icon {
+      background: var(--accent);
+      color: #030712;
+      transform: scale(1.05);
+    }
+
+    .highlight-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--green-sub-text);
+      margin-bottom: 2px;
+    }
+
+    .highlight-item span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Serviços */
+    .services { padding-block: 40px 80px; }
+    .section-head { margin-bottom: 40px; color: var(--text); font-size: 20px; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      padding: 32px 24px;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      background: var(--card-bg);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .service-card:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+    }
+    .service-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--green-sub-text);}
+    .service-card p { color: var(--muted); font-size: 0.925rem; margin-bottom: 20px; }
+    .service-link {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .service-card:hover .service-link { 
+      color: #7dd3fc; 
+      transform: translateX(4px);
+    }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 48px;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(16, 23, 38, 0.9) 100%);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      margin-bottom: 80px;
+      transition: border-color 0.3s ease;
+    }
+    .bottom-cta:hover { border-color: var(--card-border-hover); }
+
+    /* Footer Centralizado */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-block: 30px;
+      border-top: 1px solid var(--card-border);
+      color: var(--muted);
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    /* Responsividade e Aumento de Margens */
+    @media (max-width: 850px) {
+       body { background-color: var(--bg-mobile); }
+      .wrap { width: calc(100% - 50px); }
+      .hero { gap: 24px; padding-block: 30px; }
+      .about-grid-card { grid-template-columns: 1fr; padding: 24px; gap: 30px; }
+      .about-photo-card { max-width: 280px; margin-inline: auto; }
+      .service-grid { grid-template-columns: 1fr; }
+      .bottom-cta { flex-direction: column; gap: 24px; text-align: center; padding: 32px 24px; }
+      .portrait-card { max-width: 100%; }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->reveal
+  <header class="wrap topbar">
+    <div class="brand-group">
+      <img class="avatar-header" src="https://avatars.githubusercontent.com/u/42287752?v=4" alt="Robson Maciel">
+      <a class="brand" href="#inicio">ROBSON<span>.DEV</span></a>
+    </div>  
+    <a class="nav-github" href="https://github.com/RobsonMT2018" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+      GitHub ↗
+    </a>
+    <div class="eyebrow"><span class="eyebrow-dot"></span> Online</div>      
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="wrap hero reveal" id="inicio">
+      <div>
+        <h1>Landing pages que transmitem confiança e <span>geram resultados.</span></h1>
+        <p class="hero-copy">Páginas modernas, ultra-rápidas e responsivas. Design limpo e focado no que realmente importa: converter visitantes em clientes.</p>
+      </div>
+
+      <!-- Vitrine de Projetos Interativa (Substituiu o carrossel contínuo) -->
+      <div class="portrait-card">
+        <!-- Palco Principal -->
+        <div class="stage-container" id="stageContainer">
+          <img id="stageImage" class="stage-image" src="projeto1.png" alt="Landing page desenvolvida para eletricista">
+          <div class="stage-overlay">
+            <div class="stage-info">
+              <h3 id="stageTitle">Landing Page para Eletricista</h3>
+              <p id="stageDesc">Página profissional otimizada para captação de clientes locais.</p>
+              <a id="stageLink" class="btn-project" href="https://ataideeletricista.com.br/" target="_blank" rel="noopener">Ver projeto ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra de Miniaturas para Seleção -->
+        <div class="thumbnails-bar" id="thumbnailsBar">
+          <div class="thumb-item active" onclick="selectProject(0)">
+            <img src="projeto1.png" alt="Projeto 1">
+          </div>
+          <div class="thumb-item" onclick="selectProject(1)">
+            <img src="projeto2.png" alt="Projeto 2">
+          </div>
+          <div class="thumb-item" onclick="selectProject(2)">
+            <img src="projeto3.png" alt="Projeto 3">
+          </div>
+          <div class="thumb-item" onclick="selectProject(3)">
+            <img src="projeto4.png" alt="Projeto 4">
+          </div>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/5515998883175?text=Ol%C3%A1%20Robson%2C%20quero%20solicitar%20uma%20landing%20page." target="_blank" rel="noopener">Solicitar projeto ↗</a>
+      </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section class="wrap about reveal" id="sobre">
+      <div class="about-grid-card">
+        <div class="about-photo-card">
+            <img src="https://avatars.githubusercontent.com/u/42287752?v=4" alt="Robson Maciel">
+         </div>
+
+        <div class="about-content">
+          <h2><span>Robson Maciel</span>, desenvolvo páginas modernas que valorizam sua<span> marca</span>.</h2>
+          <p class="about-text">
+            Especialista em criar landing pages de alta performance, ultra-rápidas e focadas em converter visitantes em clientes.
+          </p>
+          
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div>
+                <strong>Código Limpo & Rápido</strong>
+                <span>Carregamento instantâneo para não perder clientes.</span>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <div>
+                <strong>Foco na Experiência (UX)</strong>
+                <span>Design intuitivo planejado para conversão.</span>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </div>
+              <div>
+                <strong>Atendimento Direto</strong>
+                <span>Comunicação clara em todas as etapas do projeto.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="wrap services reveal" id="servicos">
+      <div class="section-head">
+        <h2><span>Como posso ajudar seu negócio:</span></h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Landing Pages</h3>
+          <p>Páginas de alta conversão para lançamentos de produtos, serviços ou captação de leads.</p>
+          <a class="service-link" href="https://wa.me/5515998883175?text=Ol%C3%A1%20Robson%2C%20tenho%20interesse%20em%20uma%20Landing%20Page." target="_blank" rel="noopener">Solicitar proposta ↗</a>
+        </article>
+        <article class="service-card">
+          <h3>Sites Responsivos</h3>
+          <p>Desenvolvimento web adaptado para celulares, tablets e computadores com visual limpo.</p>
+          <a class="service-link" href="https://wa.me/5515998883175?text=Ol%C3%A1%20Robson%2C%20quero%20solicitar%20um%20site%20responsivo." target="_blank" rel="noopener">Solicitar proposta ↗</a>
+        </article>
+        <article class="service-card">
+          <h3>Reformulação Visual</h3>
+          <p>Redesign de sites antigos para modernizar sua marca e melhorar a navegação.</p>
+          <a class="service-link" href="https://wa.me/5515998883175?text=Ol%C3%A1%20Robson%2C%20quero%20melhorar%20meu%20site%20atual." target="_blank" rel="noopener">Solicitar proposta ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="wrap bottom-cta reveal">
+      <div>
+        <h2>Pronto para destacar sua marca na web?</h2>
+        <p style="color: var(--muted); margin-top: 4px;">Entre em contato diretamente para conversarmos sobre o seu projeto.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5515998883175?text=Ol%C3%A1%20Robson%2C%20quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp ↗</a>
+    </section>
+  </main>
+
+  <!-- Footer Centralizado -->
+  <footer class="wrap">
+    <span>© <span id="year"></span> Robson Maciel. Todos os direitos reservados.</span>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Dados dos projetos para atualizar a vitrine principal ao clicar nas miniaturas
+    const projectsData = [
+      {
+        image: "projeto1.png",
+        title: "Landing Page para Eletricista",
+        desc: "Página profissional otimizada para captação de clientes locais.",
+        link: "https://ataideeletricista.com.br/"
+      },
+      {
+        image: "projeto2.png",
+        title: "Landing Page para Infuencer",
+        desc: "Página para centralizar links de cursos, vídeos do YouTube",
+        link: "https://robsonmt2018.github.io/Landing-Page-aula/"
+      },
+      {
+        image: "projeto3.png",
+        title: "Landing Page de Cuidador e Piscina",
+        desc: "Estrutura focada em campanhas de tráfego pago e vendas diretas.",
+        link: "https://robsonmt2018.github.io/site_piscina/"
+      },
+      {
+        image: "projeto4.png",
+        title: "Site Responsivo",
+        desc: "Desenvolvimento completo adaptado para todas as telas.",
+        link: "https://robsonmt2018.github.io/site-imobiliaria/"
+      }
+    ];
+
+    function selectProject(index) {
+      const proj = projectsData[index];
+      const stageImage = document.getElementById("stageImage");
+      const stageTitle = document.getElementById("stageTitle");
+      const stageDesc = document.getElementById("stageDesc");
+      const stageLink = document.getElementById("stageLink");
+
+      // Efeito suave de transição na troca
+      stageImage.style.opacity = 0;
+      
+      setTimeout(() => {
+        stageImage.src = proj.image;
+        stageTitle.textContent = proj.title;
+        stageDesc.textContent = proj.desc;
+        stageLink.href = proj.link;
+        stageImage.style.opacity = 1;
+      }, 200);
+
+      // Atualizar classe ativa nas miniaturas
+      const thumbs = document.querySelectorAll('.thumb-item');
+      thumbs.forEach((thumb, idx) => {
+        if (idx === index) {
+          thumb.classList.add('active');
+        } else {
+          thumb.classList.remove('active');
+        }
+      });
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
